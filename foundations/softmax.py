@@ -10,6 +10,6 @@ class Solution:
         # return np.round(your_answer, 4)
         m = np.max(z)
         t = np.exp(z-m)
-        s = sum(t)
+        s = np.sum(t)
         res = t/s
         return np.round(res,4)
