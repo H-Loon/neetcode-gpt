@@ -18,10 +18,10 @@ class Solution:
         w = np.zeros(d)
 
         for _ in range(epochs):
-            y_hat = np.dot(X, w) + b
+            y_hat = X @ w + b
             err = y_hat - y
             # Calculate gradients
-            dw = (2/n) * np.dot(X.T, err)
+            dw = (2/n) * (X.T @ err)
             db = (2/n) * np.sum(err)
             w = w - lr * dw
             b = b - lr * db
