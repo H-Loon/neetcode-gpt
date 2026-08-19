@@ -25,7 +25,7 @@ class Solution:
             dw = (2/n) * (X.T @ err)
             db = (2/n) * np.sum(err)
 
-            # Update the wheights and biase
+            # Update the weights and biase
             w = w - lr * dw
             b = b - lr * db
 
