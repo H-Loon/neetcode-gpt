@@ -14,9 +14,10 @@ class Solution:
         # Loss: MSE = (1/n) * sum((y_hat - y)^2)
         # Initialize w = zeros, b = 0
         b = 0.0
-        w = np.zeros(X.shape[1], dtype=np.float64)
-        n = y.shape[0]
-        for i in range(epochs):
+        n, d = X.shape 
+        w = np.zeros(d)
+
+        for _ in range(epochs):
             y_hat = np.dot(X, w) + b
             err = y_hat - y
             # Calculate gradients
