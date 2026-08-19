@@ -16,14 +16,14 @@ class Solution:
         b = 0.0
         n, d = X.shape 
         w = np.zeros(d)
-        n2 = 2/n
+        half_n = 2/n
         Xt = X.T
         for _ in range(epochs):
             y_hat = np.dot(X, w) + b
             err = y_hat - y
             # Calculate gradients
-            dw = n2 * np.dot(Xt, err)
-            db = n2 * np.sum(err)
+            dw = half_n * np.dot(Xt, err)
+            db = half_n * np.sum(err)
             w = w - lr * dw
             b = b - lr * db
         return (np.round(w, 5), round(b, 5))
