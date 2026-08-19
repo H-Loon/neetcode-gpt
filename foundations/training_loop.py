@@ -12,7 +12,7 @@ class Solution:
         #
         # Model: y_hat = X @ w + b
         # Loss: MSE = (1/n) * sum((y_hat - y)^2)
-        # Initialize w = zeros, b = 0
+
         b = 0.0
         n, d = X.shape 
         w = np.zeros(d)
@@ -20,9 +20,13 @@ class Solution:
         for _ in range(epochs):
             y_hat = X @ w + b
             err = y_hat - y
+
             # Calculate gradients
             dw = (2/n) * (X.T @ err)
             db = (2/n) * np.sum(err)
+
+            # Update the wheights and biase
             w = w - lr * dw
             b = b - lr * db
+
         return (np.round(w, 5), round(b, 5))
