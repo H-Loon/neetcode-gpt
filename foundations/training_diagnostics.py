@@ -47,8 +47,10 @@ class Solution:
         # Check in priority order (see problem description for thresholds)
         if any(stats['dead_fraction'] > 0.5 for stats in activation_stats):
             return 'dead_neurons'
+
         elif any(stats['norm'] > 1000 for stats in gradient_stats):
             return 'exploding_gradients'
+            
         elif (gradient_stats[-1]['norm'] < 1e-5):
             return 'vanishing_gradients'
         
